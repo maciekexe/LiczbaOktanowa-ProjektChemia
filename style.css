@@ -1,0 +1,165 @@
+/* =========================================
+   1. RESET I BAZA
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #0f172a; /* Slate 900 */
+    color: #e2e8f0; /* Slate 200 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   2. TYPOGRAFIA I ELEMENTY
+   ========================================= */
+h1, h2, h3, h4 { color: #fff; margin-bottom: 1rem; }
+h1 { font-size: 3rem; text-align: center; font-weight: 800; letter-spacing: -2px; }
+h2 { font-size: 2.2rem; border-left: 5px solid #eab308; padding-left: 15px; margin-top: 0; margin-bottom: 2rem; }
+p { font-size: 1.1rem; margin-bottom: 1.5rem; text-align: justify; color: #cbd5e1; }
+strong { color: #eab308; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+section { padding: 5rem 0; border-bottom: 1px solid #1e293b; }
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    padding: 20px;
+}
+.scroll-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: #eab308;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.scroll-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
+
+/* =========================================
+   4. WIZUALIZACJE (CHEMIA & TECHNOLOGIA)
+   ========================================= */
+
+/* Cząsteczki 3D CSS */
+.molecule-stage {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+    perspective: 1000px;
+}
+.molecule-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #334155;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+}
+
+/* --- ULEPSZONA WIZUALIZACJA 3D CSS --- */
+.molecule-wrapper {
+    width: 120px; height: 120px;
+    margin: 0 auto 30px; 
+    position: relative;
+    transform-style: preserve-3d;
+    animation: tumble 16s infinite linear;
+}
+
+/* Animacja koziołkowania */
+@keyframes tumble {
+    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+}
+
+/* Atomy jako sfery z gradientem */
+.atom { position: absolute; border-radius: 50%; }
+
+.c-atom { 
+    width: 30px; height: 30px; 
+    background: radial-gradient(circle at 30% 30%, #666, #1a1a1a);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.h-atom { width: 15px; height: 15px; background: #fff; }
+
+/* Pozycjonowanie n-heptanu (ulepszone) */
+.heptan .atom:nth-child(1) { transform: translate3d(-90px, -15px, 0px); }
+.heptan .atom:nth-child(2) { transform: translate3d(-60px, 15px, 0px); }
+.heptan .atom:nth-child(3) { transform: translate3d(-30px, -15px, 0px); }
+.heptan .atom:nth-child(4) { transform: translate3d(0px, 15px, 0px); }
+.heptan .atom:nth-child(5) { transform: translate3d(30px, -15px, 0px); }
+.heptan .atom:nth-child(6) { transform: translate3d(60px, 15px, 0px); }
+.heptan .atom:nth-child(7) { transform: translate3d(90px, -15px, 0px); }
+
+/* Pozycjonowanie izooktanu (ulepszone) */
+.izooktan .atom:nth-child(1) { transform: translate3d(0, 0, 0); }
+.izooktan .atom:nth-child(2) { transform: translate3d(22px, 0, 0); }
+.izooktan .atom:nth-child(3) { transform: translate3d(-22px, 0, 0); }
+.izooktan .atom:nth-child(4) { transform: translate3d(0, 22px, 0); }
+.izooktan .atom:nth-child(5) { transform: translate3d(0, -22px, 0); }
+.izooktan .atom:nth-child(6) { transform: translate3d(0, 0, 22px); }
+.izooktan .atom:nth-child(7) { transform: translate3d(0, 0, -22px); }
+.izooktan .atom:nth-child(8) { transform: translate3d(14px, 14px, 14px); }
+
+/* Siatki kafelków */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+.card {
+    background: rgba(255,255,255,0.03);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    h1 { font-size: 2.5rem; }
+}
+
+/* =========================================
+   5. SYMULATOR SILNIKA
+   ========================================= */
+.sim-container {
+    display: flex; flex-wrap: wrap; gap: 2rem;
+    background: #1e293b; padding: 2rem; border-radius: 1rem; align-items: center;
+}
+.controls { flex: 1; min-width: 300px; }
+.canvas-wrapper { flex: 1; display: flex; justify-content: center; }
+canvas { background: #000; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); max-width: 100%; }
+
+input[type=range] { width: 100%; margin: 10px 0; cursor: pointer; }
+.value-display { font-family: monospace; font-size: 1.2rem; color: #eab308; }
+
+.knocking { animation: shake 0.5s infinite; border: 2px solid #ef4444; }
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* =========================================
+   6. STOPKA
+   ========================================= */
+footer { background-color: #020617; padding: 3rem 1rem; border-top: 1px solid #1e293b; color: #94a3b8; font-size: 0.9rem; }
+footer a { color: #eab308; text-decoration: none; border-bottom: 1px dotted #eab308; transition: 0.3s; }
+footer a:hover { color: #fff; border-bottom-color: #fff; }
+footer ul { list-style: none; padding: 0; }
+footer li { margin-bottom: 8px; }

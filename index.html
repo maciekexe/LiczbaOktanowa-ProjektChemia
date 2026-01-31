@@ -4,163 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liczba Oktanowa - Projekt Edukacyjny</title>
-    <style>
-        /* =========================================
-           1. RESET I BAZA
-           ========================================= */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #0f172a; /* Slate 900 */
-            color: #e2e8f0; /* Slate 200 */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* =========================================
-           2. TYPOGRAFIA I ELEMENTY
-           ========================================= */
-        h1, h2, h3, h4 { color: #fff; margin-bottom: 1rem; }
-        h1 { font-size: 3rem; text-align: center; font-weight: 800; letter-spacing: -2px; }
-        h2 { font-size: 2.2rem; border-left: 5px solid #eab308; padding-left: 15px; margin-top: 0; margin-bottom: 2rem; }
-        p { font-size: 1.1rem; margin-bottom: 1.5rem; text-align: justify; color: #cbd5e1; }
-        strong { color: #eab308; }
-        
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 5rem 0; border-bottom: 1px solid #1e293b; }
-
-        /* =========================================
-           3. HERO SECTION
-           ========================================= */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-            padding: 20px;
-        }
-        .scroll-btn {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background: #eab308;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .scroll-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
-
-        /* =========================================
-           4. WIZUALIZACJE (CHEMIA & TECHNOLOGIA)
-           ========================================= */
-        
-        /* Cząsteczki 3D CSS */
-        .molecule-stage {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin: 3rem 0;
-            perspective: 1000px;
-        }
-        .molecule-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid #334155;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            width: 300px;
-        }
-        .molecule-wrapper {
-            width: 120px; height: 120px;
-            margin: 0 auto 20px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotate 12s infinite linear;
-        }
-        .atom { position: absolute; border-radius: 50%; box-shadow: inset -2px -2px 5px rgba(0,0,0,0.5); }
-        .c-atom { width: 30px; height: 30px; background: #333; }
-        .h-atom { width: 15px; height: 15px; background: #fff; }
-
-        /* Pozycjonowanie n-heptanu */
-        .heptan .atom:nth-child(1) { transform: translate3d(-60px, 0, 0); }
-        .heptan .atom:nth-child(2) { transform: translate3d(-40px, 10px, 0); }
-        .heptan .atom:nth-child(3) { transform: translate3d(-20px, 0, 0); }
-        .heptan .atom:nth-child(4) { transform: translate3d(0px, 10px, 0); }
-        .heptan .atom:nth-child(5) { transform: translate3d(20px, 0, 0); }
-        .heptan .atom:nth-child(6) { transform: translate3d(40px, 10px, 0); }
-        .heptan .atom:nth-child(7) { transform: translate3d(60px, 0, 0); }
-
-        /* Pozycjonowanie izooktanu */
-        .izooktan .atom:nth-child(1) { transform: translate3d(0, 0, 0); }
-        .izooktan .atom:nth-child(2) { transform: translate3d(25px, 0, 0); }
-        .izooktan .atom:nth-child(3) { transform: translate3d(-25px, 0, 0); }
-        .izooktan .atom:nth-child(4) { transform: translate3d(0, 25px, 0); }
-        .izooktan .atom:nth-child(5) { transform: translate3d(0, -25px, 0); }
-        .izooktan .atom:nth-child(6) { transform: translate3d(0, 0, 25px); }
-        .izooktan .atom:nth-child(7) { transform: translate3d(0, 0, -25px); }
-        .izooktan .atom:nth-child(8) { transform: translate3d(15px, 15px, 15px); }
-
-        @keyframes rotate {
-            from { transform: rotateY(0deg) rotateX(10deg); }
-            to { transform: rotateY(360deg) rotateX(10deg); }
-        }
-
-        /* Siatki kafelków (Paliwa, Mity) */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        
-        .card {
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #334155;
-        }
-
-        /* Responsywność */
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            h1 { font-size: 2.5rem; }
-        }
-
-        /* =========================================
-           5. SYMULATOR SILNIKA
-           ========================================= */
-        .sim-container {
-            display: flex; flex-wrap: wrap; gap: 2rem;
-            background: #1e293b; padding: 2rem; border-radius: 1rem; align-items: center;
-        }
-        .controls { flex: 1; min-width: 300px; }
-        .canvas-wrapper { flex: 1; display: flex; justify-content: center; }
-        canvas { background: #000; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); max-width: 100%; }
-        
-        input[type=range] { width: 100%; margin: 10px 0; cursor: pointer; }
-        .value-display { font-family: monospace; font-size: 1.2rem; color: #eab308; }
-        
-        .knocking { animation: shake 0.5s infinite; border: 2px solid #ef4444; }
-        @keyframes shake {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
-        }
-
-        /* =========================================
-           6. STOPKA
-           ========================================= */
-        footer { background-color: #020617; padding: 3rem 1rem; border-top: 1px solid #1e293b; color: #94a3b8; font-size: 0.9rem; }
-        footer a { color: #eab308; text-decoration: none; border-bottom: 1px dotted #eab308; transition: 0.3s; }
-        footer a:hover { color: #fff; border-bottom-color: #fff; }
-        footer ul { list-style: none; padding: 0; }
-        footer li { margin-bottom: 8px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -179,9 +23,9 @@
                 Jest to parametr określający <strong>odporność paliwa na spalanie stukowe</strong> (niekontrolowany wybuch mieszanki przed momentem zapłonu).
             </p>
             <p>
-                Im wyższa liczba oktanowa, tym paliwo spala się <strong>wolniej i płynniej</strong>. To kluczowe dla silników sportowych o wysokim stopniu sprężania, które "ściskają" paliwo mocniej niż zwykłe auta.
+                Im wyższa liczba oktanowa, tym paliwo spala się <strong>wolniej i płynniej</strong>. To kluczowe dla silników sportowych o wysokim stopniu sprężania.
             </p>
-        </section>
+            </section>
 
         <section>
             <h2>Skala Porównawcza (Chemia)</h2>
@@ -219,68 +63,58 @@
             <p>Skala nie kończy się na 100. Wiele paliw ma lepszą odporność na spalanie stukowe niż czysta benzyna.</p>
             
             <div class="grid-3" style="margin-top: 30px;">
-                
                 <div class="card" style="border-top: 4px solid #3b82f6;">
                     <h3 style="color: #3b82f6;">LPG (Autogaz)</h3>
                     <p style="font-size: 2rem; font-weight: bold; margin: 10px 0;">100-110 <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
-                    <p style="font-size: 0.9rem;">
-                        Gaz jest <strong>bardziej odporny</strong> na stukanie niż benzyna! Auta na gazie są słabsze tylko dlatego, że gaz ma mniejszą gęstość energetyczną.
-                    </p>
+                    <p style="font-size: 0.9rem;">Gaz jest bardziej odporny na stukanie niż benzyna!</p>
                 </div>
 
                 <div class="card" style="border-top: 4px solid #22c55e;">
                     <h3 style="color: #22c55e;">E85 (Etanol)</h3>
                     <p style="font-size: 2rem; font-weight: bold; margin: 10px 0;">~105 <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
-                    <p style="font-size: 0.9rem;">
-                        Ulubione paliwo tunerów (85% alkoholu). Pozwala na ogromne doładowanie turbosprężarki.
-                    </p>
+                    <p style="font-size: 0.9rem;">Ulubione paliwo tunerów (85% alkoholu).</p>
                 </div>
 
                 <div class="card" style="border-top: 4px solid #a855f7;">
                     <h3 style="color: #a855f7;">Avgas 100LL</h3>
                     <p style="font-size: 2rem; font-weight: bold; margin: 10px 0;">100+ <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
-                    <p style="font-size: 0.9rem;">
-                        Paliwo do małych samolotów. Nadal zawiera <strong>ołów</strong> (LL = Low Lead) dla bezpieczeństwa w powietrzu.
-                    </p>
+                    <p style="font-size: 0.9rem;">Paliwo lotnicze (zawiera ołów).</p>
                 </div>
             </div>
         </section>
+
         <section>
             <h2>Mity, Fakty i Historia</h2>
-            
             <div class="grid-2" style="margin-bottom: 30px;">
                 <div class="card" style="border-left: 4px solid #ef4444;">
                     <h3 style="color: #ef4444; margin-top: 0;">MIT: Więcej oktanów = Więcej Mocy</h3>
-                    <p style="margin-bottom: 0;">Wlanie paliwa 98 do auta przystosowanego do 95 <strong>nie zwiększy mocy</strong>. Może ją nawet minimalnie obniżyć, ponieważ paliwo wysokooktanowe spala się wolniej.</p>
+                    <p style="margin-bottom: 0;">Wlanie 98 do auta na 95 nie zwiększy mocy. Może ją nawet obniżyć.</p>
                 </div>
-
                 <div class="card" style="border-left: 4px solid #22c55e;">
                     <h3 style="color: #22c55e; margin-top: 0;">FAKT: Komputer Steruje</h3>
-                    <p style="margin-bottom: 0;">Nowe auta mają czujniki spalania stukowego. Jeśli wlejesz gorsze paliwo, komputer opóźni zapłon, ratując silnik, ale <strong>drastycznie obniżając osiągi</strong>.</p>
+                    <p style="margin-bottom: 0;">Auto opóźni zapłon przy gorszym paliwie, tracąc moc.</p>
                 </div>
             </div>
 
             <div class="card" style="padding: 2rem;">
                 <h3 style="color: #eab308; margin-top: 0;">Historia: Zabójcza Etylina</h3> 
-                <p>Przez dekady dodawano do paliwa toksyczny <strong>Tetraetyloołów</strong>. Paliwo to nazywano "Etyliną".</p>
-                
+                <p>Przez dekady dodawano do paliwa toksyczny <strong>Tetraetyloołów</strong>.</p>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
                     <div style="flex: 1; background: #330000; padding: 15px; border-radius: 10px; min-width: 200px;">
                         <h4 style="color: #ef4444; margin-top: 0;">Zalety (Silnik)</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Ołów świetnie zapobiegał stukaniu i smarował gniazda zaworowe.</p>
+                        <p style="font-size: 0.9rem; margin: 0;">Zapobiegał stukaniu i smarował zawory.</p>
                     </div>
-                    
                     <div style="flex: 1; background: #1e293b; padding: 15px; border-radius: 10px; min-width: 200px;">
                         <h4 style="color: #94a3b8; margin-top: 0;">Wady (Ludzie)</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Zatruwał środowisko i obniżał IQ u dzieci. Wycofany całkowicie w 2005r.</p>
+                        <p style="font-size: 0.9rem; margin: 0;">Zatruwał środowisko i obniżał IQ.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <h2>Technologia: Co "słyszy" Twój samochód?</h2>
-            <p>Współczesne auta posiadają <strong>Czujnik Spalania Stukowego</strong> (Knock Sensor). Działa jak mikrofon przykręcony do silnika.</p>
+            <p>Współczesne auta posiadają <strong>Czujnik Spalania Stukowego</strong>.</p>
 
             <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
                 <div style="flex: 1; min-width: 300px;">
@@ -292,15 +126,13 @@
                         <li style="color: #ef4444;">Skutek: Samochód jest słabszy.</li>
                     </ol>
                 </div>
-
                 <div style="flex: 1; min-width: 300px; background: #000; border: 2px solid #333; border-radius: 5px; padding: 20px; font-family: 'Courier New', monospace;">
-                    <div style="border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; color: #666; font-size: 0.8rem;">
-                        /// ECU_DIAGNOSTIC_TOOL ///
-                    </div>
+                    <div style="border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; color: #666; font-size: 0.8rem;">/// ECU_DIAGNOSTIC_TOOL ///</div>
                     <div id="console-output" style="height: 120px; overflow: hidden; font-size: 0.85rem;"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
 
     </div>
 
@@ -309,8 +141,7 @@
             <div class="grid-3" style="text-align: left; align-items: start;">
                 <div>
                     <strong style="color: #fff;">Autor</strong>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">
-                        Maciej Kamiński<br>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Maciej Kamiński</p>
                 </div>
                 <div>
                     <strong style="color: #fff;">Źródła Podstawowe</strong>
@@ -320,122 +151,17 @@
                     </ul>
                 </div>
                 <div>
-                    <strong style="color: #fff;">Dane o Paliwach (LPG, E85)</strong>
+                    <strong style="color: #fff;">Dane o Paliwach</strong>
                     <ul style="margin-top: 10px; font-size: 0.9rem;">
-                        <li><a href="https://afdc.energy.gov/fuels/ethanol_e85_specs.html" target="_blank">US Dept. of Energy (E85 Specs)</a></li>
-                        <li><a href="https://www.shell.com/business-customers/aviation/aviation-fuel/avgas.html" target="_blank">Shell Aviation (Avgas 100LL)</a></li>
+                        <li><a href="https://afdc.energy.gov/fuels/ethanol_e85_specs.html" target="_blank">Dept. of Energy (E85)</a></li>
+                        <li><a href="https://www.shell.com/business-customers/aviation/aviation-fuel/avgas.html" target="_blank">Shell (Avgas)</a></li>
+                        <li><a href="https://gazeo.pl/lpg/od-a-do-z/wlasciwosci-lpg/Liczba-oktanowa-LPG,artykul,6143.html" target="_blank">Gazeo.pl (LPG)</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        /* --- 1. SYMULATOR SILNIKA --- */
-        const canvas = document.getElementById('simCanvas');
-        const ctx = canvas.getContext('2d');
-        const compSlider = document.getElementById('compression');
-        const octSlider = document.getElementById('octane');
-        const compDisplay = document.getElementById('comp-val');
-        const octDisplay = document.getElementById('oct-val');
-        const statusBox = document.getElementById('status-box');
-        const engineWrapper = document.getElementById('engine-wrapper');
-
-        let angle = 0;
-        let isKnocking = false;
-
-        compSlider.addEventListener('input', () => compDisplay.textContent = compSlider.value);
-        octSlider.addEventListener('input', () => octDisplay.textContent = octSlider.value);
-
-        function drawEngine() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const cx = canvas.width / 2;
-            const cy = 250;
-            const crankR = 40;
-            const rodL = 100;
-            const pistonW = 80;
-            const pistonH = 60;
-
-            angle += 0.1;
-            const crankX = cx + Math.cos(angle) * crankR;
-            const crankY = cy + Math.sin(angle) * crankR;
-            const pistonY = crankY - Math.sqrt(rodL**2 - (crankX - cx)**2);
-
-            const compression = parseFloat(compSlider.value);
-            const octane = parseInt(octSlider.value);
-            
-            // Prosta formuła: Wytrzymałość paliwa rośnie z oktanami
-            const fuelResistance = (octane / 10) + 0.5;
-            const isTDC = Math.sin(angle) < -0.8; // Tłok na górze
-
-            // Warunek stukania: Wysoka kompresja vs Słabe paliwo
-            if (isTDC && compression > fuelResistance) {
-                isKnocking = true;
-            } else {
-                isKnocking = false;
-            }
-
-            // Rysowanie
-            ctx.fillStyle = "#333";
-            ctx.fillRect(cx - 50, 40, 100, 220); // Cylinder
-
-            if (isKnocking && isTDC) {
-                ctx.fillStyle = "rgba(239, 68, 68, 0.9)"; // Czerwony błysk
-                statusBox.innerHTML = "⚠️ <span style='color:#ef4444'>SPALANIE STUKOWE!</span><br>Silnik niszczony.";
-                engineWrapper.classList.add('knocking');
-            } else if (isTDC) {
-                ctx.fillStyle = "rgba(234, 179, 8, 0.6)"; // Żółty zapłon (OK)
-                statusBox.innerHTML = "STATUS: <span style='color:#4ade80'>PRACA OPTYMALNA</span>";
-                engineWrapper.classList.remove('knocking');
-            } else {
-                ctx.fillStyle = "rgba(0,0,0,0)";
-                if(!isKnocking) engineWrapper.classList.remove('knocking');
-            }
-            ctx.fillRect(cx - 45, 40, 90, pistonY - 40 - pistonH/2); // Komora spalania
-
-            ctx.fillStyle = "#94a3b8";
-            ctx.fillRect(cx - pistonW/2, pistonY - pistonH/2, pistonW, pistonH); // Tłok
-            
-            ctx.beginPath(); ctx.moveTo(cx, pistonY); ctx.lineTo(crankX, crankY);
-            ctx.strokeStyle = "#64748b"; ctx.lineWidth = 10; ctx.stroke(); // Korbowód
-
-            ctx.beginPath(); ctx.arc(cx, cy, 15, 0, Math.PI*2);
-            ctx.fillStyle = "#fff"; ctx.fill(); // Wał
-
-            requestAnimationFrame(drawEngine);
-        }
-        drawEngine();
-
-        /* --- 2. SYMULATOR KOMPUTERA (ECU) --- */
-        const consoleOutput = document.getElementById('console-output');
-        const messages = [
-            { text: "> SENSOR: Nasłuchiwanie...", color: "#fff" },
-            { text: "> STATUS: Praca silnika stabilna.", color: "#4ade80" },
-            { text: "> ALERT: Wykryto wibracje!", color: "#ef4444" },
-            { text: "> ECU: Opóźnianie kąta zapłonu...", color: "#eab308" },
-            { text: "> KOREKTA: Zapłon -3°.", color: "#eab308" },
-            { text: "> SENSOR: Wibracje ustały.", color: "#4ade80" },
-            { text: "> INFO: Moc ograniczona.", color: "#94a3b8" }
-        ];
-        let msgIndex = 0;
-
-        function runConsole() {
-            if(msgIndex >= messages.length) msgIndex = 0;
-            const msg = messages[msgIndex];
-            const line = document.createElement('div');
-            line.innerText = msg.text;
-            line.style.color = msg.color;
-            line.style.marginBottom = "4px";
-            consoleOutput.appendChild(line);
-            
-            if(consoleOutput.children.length > 5) {
-                consoleOutput.removeChild(consoleOutput.children[0]);
-            }
-            msgIndex++;
-            setTimeout(runConsole, 1500);
-        }
-        runConsole();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
