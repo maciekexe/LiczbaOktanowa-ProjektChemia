@@ -11,7 +11,6 @@
 
     <header class="hero">
         <h1>LICZBA OKTANOWA</h1>
-        <p>Co tak naprawdę wlewasz do baku i dlaczego Twój silnik tego potrzebuje?</p>
         <a href="#definicja" class="scroll-btn">Zaczynamy</a>
     </header>
 
@@ -19,19 +18,23 @@
         
         <section id="definicja">
             <h2>Czym jest liczba oktanowa?</h2>
+           
+               <p>
+                        Liczba oktanowa stanowi <strong>miarę stabilności paliwa</strong>. 
+                        Ocenia więc jego jakość oraz zdolność do wydajnego spalania. 
+                        Pozwala ona określić odporność paliwa na <strong>niekontrolowany zapłon</strong> w komorze spalania, a tym samym – jego odporność na tzw. <strong>spalanie stukowe</strong>.
+                </p>
+           
             <p>
-                Wbrew powszechnej opinii, liczba oktanowa <strong>nie określa kaloryczności paliwa</strong> ani energii, jaką można z niego uzyskać. 
-                Jest to parametr określający <strong>odporność paliwa na spalanie stukowe</strong> (niekontrolowany wybuch mieszanki przed momentem zapłonu).
-            </p>
-            <p>
-                Im wyższa liczba oktanowa, tym paliwo spala się <strong>wolniej i płynniej</strong>. To kluczowe dla silników sportowych o wysokim stopniu sprężania.
+                Im wyższa liczba oktanowa, tym paliwo jest <strong>bardziej odporne na samozapłon</strong>
+                 i pozwala na <strong>bezpieczną pracę silnika przy wyższym stopniu sprężania</strong>.
             </p>
             </section>
 
 
 <section>
     <h2>Architektura Paliwa (3D)</h2>
-    <p>Obracaj cząsteczkami myszką, aby zobaczyć różnicę w budowie. Zwróć uwagę, jak zwarty jest izooktan w porównaniu do długiego n-heptanu.</p>
+    <p>Liniowa budowa n-Heptanu sprawia, że łatwo rozpada się pod wpływem temperatury (wybuchając przedwcześnie), podczas gdy zwarta, rozgałęziona struktura Izooktanu jest stabilna i czeka na iskrę ze świecy.</p>
     
     <div style="text-align: center; margin-bottom: 20px;">
         <button id="btn-heptane" class="molecule-btn active">n-Heptan (0 Oktanów)</button>
@@ -49,6 +52,35 @@
 </section>
 
 
+<section>
+    <h2>Jak mierzy się liczbę oktanową?</h2>
+    <p>Liczbę oktanową wyznacza się w specjalnym silniku testowym <strong>CFR (Cooperative Fuel Research)</strong>, porównując badane paliwo z mieszaniną wzorcową.</p>
+
+    <div class="card" style="background: #1e293b; border: 1px dashed #475569; margin: 20px 0;">
+        <p style="margin-bottom: 10px;">Przyjęto punkty odniesienia:</p>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>🧪 <strong>n-heptan</strong> = liczba oktanowa <strong>0</strong></li>
+            <li>🧪 <strong>izooktan</strong> (2,2,4-trimetylopentan) = liczba oktanowa <strong>100</strong></li>
+        </ul>
+    </div>
+
+    <p>
+        Wartość liczby oktanowej paliwa odpowiada <strong>procentowej zawartości izooktanu</strong> w mieszaninie, która powoduje taką samą intensywność spalania stukowego jak badane paliwo.
+    </p>
+
+    <div class="grid-2" style="margin-top: 20px; gap: 15px;">
+        <div class="card" style="padding: 15px; background: rgba(59, 130, 246, 0.1);">
+            <h4 style="color: #3b82f6; margin-top: 0;">RON <small>(Research Octane Number)</small></h4>
+            <p style="font-size: 0.85rem; margin-bottom: 0;">Symuluje łagodniejsze warunki pracy silnika.</p>
+        </div>
+        <div class="card" style="padding: 15px; background: rgba(239, 68, 68, 0.1);">
+            <h4 style="color: #ef4444; margin-top: 0;">MON <small>(Motor Octane Number)</small></h4>
+            <p style="font-size: 0.85rem; margin-bottom: 0;">Symuluje cięższe warunki eksploatacji (wysoka temperatura i obciążenie). Jest zawsze niższa od RON.</p>
+        </div>
+       
+    </div>
+</section>
+
         <section>
             <h2>Paliwa Ekstremalne i Alternatywne</h2>
             <p>Skala nie kończy się na 100. Wiele paliw ma lepszą odporność na spalanie stukowe niż czysta benzyna.</p>
@@ -63,7 +95,7 @@
             <h3 style="color: #3b82f6; margin-top: 0;">LPG (Autogaz)</h3>
             <p style="font-size: 2rem; font-weight: bold; margin: 5px 0;">100-110 <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
             <p style="font-size: 0.9rem;">
-                Gaz jest <strong>bardziej odporny</strong> na stukanie niż benzyna! Auta na gazie są słabsze tylko dlatego, że gaz ma mniejszą gęstość energetyczną.
+                Gaz ma mniejszą gęstość energetyczną, co oznacza, że potrzeba go objętościowo więcej niż benzyny. W nowoczesnych instalacjach (IV/V generacja) spadek mocy jest niemal niezauważalny (ok. 2-3%), ponieważ komputer precyzyjnie koryguje dawkę paliwa.
             </p>
         </div>
     </div>
@@ -74,7 +106,7 @@
              style="width: 100%; height: 150px; object-fit: cover; opacity: 0.9;">
         <div style="padding: 20px;">
             <h3 style="color: #22c55e; margin-top: 0;">E85 (Etanol)</h3>
-            <p style="font-size: 2rem; font-weight: bold; margin: 5px 0;">~105 <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
+            <p style="font-size: 2rem; font-weight: bold; margin: 5px 0;">105–109 <span style="font-size: 1rem; color: #64748b;">Oktanów</span></p>
             <p style="font-size: 0.9rem;">
                 Ulubione paliwo tunerów (85% alkoholu roślinnego z kukurydzy). Pozwala na ogromne doładowanie turbosprężarki.
             </p>
@@ -96,13 +128,12 @@
 
 </div>
         </section>
-
-        <section>
-            <h2>Mity, Fakty i Historia</h2>
+<section>
+            <h2>Mity, Fakty i Ciekawostki</h2>
             <div class="grid-2" style="margin-bottom: 30px;">
                 <div class="card" style="border-left: 4px solid #ef4444;">
                     <h3 style="color: #ef4444; margin-top: 0;">MIT: Więcej oktanów = Więcej Mocy</h3>
-                    <p style="margin-bottom: 0;">Wlanie 98 do auta na 95 nie zwiększy mocy. Może ją nawet obniżyć.</p>
+                    <p style="margin-bottom: 0;">Wlanie 98 do auta na 95 nie zwiększa mocy, ponieważ silnik nie jest przystosowany do wyższego stopnia sprężania.</p>
                 </div>
                 <div class="card" style="border-left: 4px solid #22c55e;">
                     <h3 style="color: #22c55e; margin-top: 0;">FAKT: Komputer Steruje</h3>
@@ -112,49 +143,38 @@
 
             <div class="card" style="padding: 2rem;">
                 <h3 style="color: #eab308; margin-top: 0;">Historia: Zabójcza Etylina</h3> 
-                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
-    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=300&auto=format&fit=crop" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; border: 2px solid #eab308;">
-    <p style="margin: 0;">
-        Przez dekady dodawano do paliwa toksyczny <strong>Tetraetyloołów</strong>. Paliwo to nazywano "Etyliną".
-        Stare silniki (jak na zdjęciu) wymagały ołowiu do smarowania zaworów. Nowoczesne auta go nie potrzebują.
-    </p>
-</div>
-                <p>Przez dekady dodawano do paliwa toksyczny <strong>Tetraetyloołów</strong>.</p>
+                <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px; flex-wrap: wrap;">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=300&auto=format&fit=crop" 
+                         alt="Klasyczny silnik wymagający etyliny" 
+                         style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; border: 2px solid #eab308;">
+                    <p style="margin: 0; flex: 1; min-width: 250px;">
+                        Przez dekady dodawano do paliwa toksyczny <strong>Tetraetyloołów</strong>. Paliwo to nazywano "Etyliną".
+                        Stare silniki wymagały ołowiu do smarowania zaworów. Nowoczesne auta go nie potrzebują.
+                    </p>
+                </div>
+                
                 <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-                    <div style="flex: 1; background: #330000; padding: 15px; border-radius: 10px; min-width: 200px;">
-                        <h4 style="color: #ef4444; margin-top: 0;">Zalety (Silnik)</h4>
+                    <div style="flex: 1; background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; padding: 15px; border-radius: 10px; min-width: 200px;">
+                        <h4 style="color: #22c55e; margin-top: 0;">Zalety (Silnik)</h4>
                         <p style="font-size: 0.9rem; margin: 0;">Zapobiegał stukaniu i smarował zawory.</p>
                     </div>
-                    <div style="flex: 1; background: #1e293b; padding: 15px; border-radius: 10px; min-width: 200px;">
-                        <h4 style="color: #94a3b8; margin-top: 0;">Wady (Ludzie)</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Zatruwał środowisko i obniżał IQ.</p>
+                    <div style="flex: 1; background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; padding: 15px; border-radius: 10px; min-width: 200px;">
+                        <h4 style="color: #ef4444; margin-top: 0;">Wady (Ludzie)</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Zatruwał środowisko i obniżał IQ całych pokoleń.</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- <section>
-            <h2>Technologia: Co "słyszy" Twój samochód?</h2>
-            <p>Współczesne auta posiadają <strong>Czujnik Spalania Stukowego</strong>.</p>
-
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
-                <div style="flex: 1; min-width: 300px;">
-                    <p>Scenariusz: Wlałeś słabe paliwo.</p>
-                    <ol style="margin-left: 20px; color: #cbd5e1;">
-                        <li>Czujnik wykrywa "stuknięcie".</li>
-                        <li>Komputer (ECU) <strong>opóźnia zapłon</strong>.</li>
-                        <li>Stukanie ustaje, silnik jest bezpieczny.</li>
-                        <li style="color: #ef4444;">Skutek: Samochód jest słabszy.</li>
-                    </ol>
-                </div>
-                <div style="flex: 1; min-width: 300px; background: #000; border: 2px solid #333; border-radius: 5px; padding: 20px; font-family: 'Courier New', monospace;">
-                    <div style="border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; color: #666; font-size: 0.8rem;">/// ECU_DIAGNOSTIC_TOOL ///</div>
-                    <div id="console-output" style="height: 120px; overflow: hidden; font-size: 0.85rem;"></div>
-                </div>
+            <div class="card" style="background: linear-gradient(90deg, #1e293b 0%, #334155 100%); border-left: 4px solid #3b82f6; margin-top: 20px;">
+                <p style="margin: 0; display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 1.5rem;">🌍</span>
+                    <span>
+                        <strong>Warto wiedzieć:</strong> W Europie i Polsce podajemy liczbę <strong>RON</strong>. 
+                        W USA stosuje się indeks <strong>AKI (Anti-Knock Index)</strong>, czyli średnią <code style="background: #0f172a; padding: 2px 6px; border-radius: 4px;">(RON + MON) / 2</code>.
+                    </span>
+                </p>
             </div>
-        </section> -->
-
-
+        </section>
     </div>
 
     <footer>
@@ -164,19 +184,15 @@
                     <strong style="color: #fff;">Autor</strong>
                     <p style="margin-top: 10px; font-size: 0.9rem;">Maciej Kamiński</p>
                 </div>
-                <div>
-                    <strong style="color: #fff;">Źródła Podstawowe</strong>
-                    <ul style="margin-top: 10px; font-size: 0.9rem;">
-                        <li><a href="https://pl.wikipedia.org/wiki/Liczba_oktanowa" target="_blank">Wikipedia: Liczba Oktanowa</a></li>
-                        <li><a href="https://www.otomoto.pl/news/liczba-oktanowa-co-to-jest-i-co-okresla" target="_blank">Otomoto: Co to jest?</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <strong style="color: #fff;">Dane o Paliwach</strong>
-                    <ul style="margin-top: 10px; font-size: 0.9rem;">
-                        <li><a href="https://afdc.energy.gov/fuels/ethanol_e85_specs.html" target="_blank">Dept. of Energy (E85)</a></li>
-                        <li><a href="https://www.shell.com/business-customers/aviation/aviation-fuel/avgas.html" target="_blank">Shell (Avgas)</a></li>
-                        <li><a href="https://gazeo.pl/lpg/od-a-do-z/wlasciwosci-lpg/Liczba-oktanowa-LPG,artykul,6143.html" target="_blank">Gazeo.pl (LPG)</a></li>
+                <div style="grid-column: span 2;">
+                    <strong style="color: #fff;">Źródła</strong>
+                    <ul style="margin-top: 10px; font-size: 0.8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 20px;">
+                        <li><a href="https://pl.wikipedia.org/wiki/Liczba_oktanowa" target="_blank">Wikipedia PL – Liczba oktanowa</a></li>
+                        <li><a href="https://www.otomoto.pl/news/liczba-oktanowa-co-to-jest-i-co-okresla" target="_blank">Otomoto – Co to jest?</a></li>
+                        <li><a href="https://gazeo.pl" target="_blank">Gazeo – Liczba oktanowa LPG</a></li>
+                        <li><a href="https://moto.infor.pl" target="_blank">Infor – Paliwo E85</a></li>
+                        <li><a href="https://gielda-odpadow.pl" target="_blank">Giełda Odpadów – AvGas</a></li>
+                        <li><a href="https://pl.wikipedia.org/wiki/Etylina" target="_blank">Wikipedia – Etylina</a></li>
                     </ul>
                 </div>
             </div>
@@ -189,7 +205,5 @@
 
     <script src="script.js"></script>
 
-</body>
-</html>
 </body>
 </html>
