@@ -1,10 +1,6 @@
-/* --- UWAGA: USUNĄŁEM IMPORTY, BO MAMY BIBLIOTEKĘ Z HTML --- */
-
-/* --- KONFIGURACJA SCENY --- */
 const container = document.getElementById('canvas-container');
 const loading = document.getElementById('loading');
 
-// Sprawdzamy czy kontener istnieje
 if (container) {
     // 1. Scena
     const scene = new THREE.Scene();
@@ -30,7 +26,6 @@ if (container) {
     scene.add(dirLight);
 
     // 5. Kontrola (OrbitControls)
-    // ZMIANA: Dodano "THREE." przed OrbitControls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
